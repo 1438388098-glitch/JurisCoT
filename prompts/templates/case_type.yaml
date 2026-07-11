@@ -1,0 +1,21 @@
+# 案例分析型论文 CoT 模板
+# 适用于：以具体案件切入的论文（案例分析、实证研究）
+
+适用章节:
+  - 案例分析
+  - 实证研究
+
+CoT 链路:
+  - step1_problem
+  - step2_premise
+  - step3_case
+  - step4a_doctrines
+  - step4b_analysis
+  - step4c_position
+  - step4d_application
+  - step5_polish
+
+说明: |
+  案例分析型使用全链路。Step 3 将案件事实代入构成要件，
+  Step 4d 将理论立场延伸到具体案件评价中。
+  Step 5 润色时注意案例引用格式（含案号）。

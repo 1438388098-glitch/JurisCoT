@@ -1,0 +1,20 @@
+# 立法建议型论文 CoT 模板
+# 分析现行法不足 → 论证修法必要性 → 提出条文修改方案
+
+适用章节:
+  - 现行法评析
+  - 修法必要性
+  - 条文建议
+
+CoT 链路:
+  - step1_problem
+  - step2_premise          # 现行法条分析
+  - step4a_doctrines       # 梳理学界对该条文缺陷的批评
+  - step4b_analysis
+  - step4c_legislative      # 变体: 条文建议型
+  - step5_polish
+
+说明: |
+  立法型的 Step 4c 使用 legislative 变体，输出"建议条文草案"。
+  Step 5 润色时注意法条草案的格式呈现。
+  可在域外参考部分通过 foreign_laws 注入域外立法例。

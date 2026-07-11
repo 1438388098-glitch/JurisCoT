@@ -1,0 +1,21 @@
+# 制度比较型论文 CoT 模板
+# 对比中国与域外制度，借鉴经验，提出本土完善建议
+
+适用章节:
+  - 中国制度现状
+  - 域外制度考察
+  - 比较分析
+
+CoT 链路:
+  - step1_problem
+  - step2_premise          # 国内法 + 域外法双法条
+  - step4a_doctrines
+  - step4b_analysis
+  - step4c_comparative      # 变体: 借鉴建议型
+  - step5_polish
+
+说明: |
+  制度比较型的关键差异在于 Step 2 需要同时解析国内法和域外法。
+  域外法原文（含翻译文本）通过 foreign_laws 参数注入。
+  Step 4c 使用 comparative 变体，输出借鉴建议而非学说立场。
+  Step 5 注意域外法律引用格式。

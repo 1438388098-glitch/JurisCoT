@@ -1,0 +1,21 @@
+# 实证研究型论文 CoT 模板
+# 以数据/统计为基础，量化分析法律现象
+
+适用章节:
+  - 理论分析（如有法条依据）
+  - 数据分析
+  - 研究发现
+  - 讨论与建议
+
+CoT 链路:
+  - step1_problem
+  - step2_premise          # 如有法条依据
+  - step4a_doctrines
+  - step4b_analysis
+  - step4c_position         # 学说立场型 —— 怎么解释数据发现
+  - step5_polish
+
+说明: |
+  实证型与理论型的 CoT 链路相同，但输入增加了 data_findings。
+  数据发现通过 data_findings 参数注入，在 Step 4a 作为"分析对象"。
+  Step 5 润色时需要处理数据呈现（表格/统计表述）。

@@ -1,0 +1,20 @@
+# 理论辨析型论文 CoT 模板
+# 适用于：课程论文、理论性论文（不涉及具体案例分析）
+
+适用章节:
+  - 引言
+  - 理论分析
+  - 结论
+
+CoT 链路:
+  - step1_problem
+  - step2_premise
+  - step4a_doctrines
+  - step4b_analysis
+  - step4c_position
+  - step5_polish
+
+说明: |
+  理论辨析型不涉及具体案例，跳过 Step 3（小前提构建）
+  和 Step 4d（延伸应用）。Step 4c 输出本文在理论层面
+  支持的学说及理由，Step 5 侧重于法理表达的严谨性。
