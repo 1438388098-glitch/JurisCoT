@@ -77,11 +77,12 @@ JurisCoT 支持 6 种法学论文类型，每种有独立的 CoT 模板、章节
 JurisCoT 对外只暴露一个核心函数和几个辅助函数：
 
 ```python
+import os
 from juriscot import ReasoningEngine, PaperType, ChapterType
 
-# 1. 创建引擎（只需配置一次）
+# 1. 创建引擎（只需配置一次；密钥从环境变量读取，不要硬编码进代码）
 engine = ReasoningEngine(
-    api_key="sk-xxx",
+    api_key=os.environ["JURISCOT_API_KEY"],
     base_url="https://api.deepseek.com",
     model="deepseek-v4-pro",
 )
@@ -290,7 +291,7 @@ CoT Step 2 prompt 硬约束:
 
 ### 5.3 本地法条库
 
-用户已有 263 份中国法律文件（`C:\Users\20579\OneDrive\桌面\中国法律\`）：
+用户本地已整理 263 份中国法律文件（本地法条库，具体路径不入库）：
 
 | 子目录 | 文件数 | 内容 |
 |--------|--------|------|
