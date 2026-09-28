@@ -1,99 +1,93 @@
-# JurisCoT — 法学思维链推理引擎
+English · [简体中文](./README.zh-CN.md)
 
-> LawAutoPaper 的前置独立子项目。一个可独立运行、独立测试的法学 Chain-of-Thought 推理库。
+# JurisCoT — Legal Chain-of-Thought Reasoning Engine
 
-**TL;DR (English)** — JurisCoT is a standalone library of legal Chain-of-Thought prompt
-templates for Chinese legal academic writing, serving as the core reasoning component of
-LawAutoPaper. It ships six paper-type CoT templates (theory / case analysis / comparative /
-empirical / legislative / literature review) with a small CLI (`juriscot list|show|run`) to
-inspect them. v0.1 covers template asset management only — the model inference pipeline is
-not implemented yet (see TASKS.md), and `run` reports that honestly instead of faking a call.
-MIT licensed.
+A standalone, independently testable legal Chain-of-Thought (CoT) reasoning library for Chinese legal academic writing, serving as the core reasoning component of LawAutoPaper. It ships six paper-type CoT prompt templates with a small CLI (`juriscot list|show|run`) to inspect them. v0.1 covers template asset management only — the model inference pipeline is not implemented yet (see TASKS.md), and `run` reports that honestly instead of faking a call.
 
-## 概述
+## Overview
 
-JurisCoT 接收法律问题及相关文献/法条/案例/数据/域外法，通过结构化的 CoT 模板生成推理链和学术正文段落。
+JurisCoT takes a legal question plus related literature / statutes / cases / data / foreign law, and generates a structured reasoning chain and academic body paragraphs through structured CoT templates.
 
-- **输入**：法律问题 + 参考文献/法条/案例/数据/域外法
-- **输出**：结构化推理链 + 学术正文段落
-- **验收后**：以 Python 包形式嵌入 LawAutoPaper
+- **Input**: legal question + reference literature / statutes / cases / data / foreign law
+- **Output**: structured reasoning chain + academic body paragraphs
+- **After acceptance**: embedded into LawAutoPaper as a Python package
 
-**当前状态（v0.1）**：
+**Current status (v0.1)**:
 
-- 已实现：6 类论文 CoT 模板与提示词资产、模板管理 CLI（`list` / `show`）、测试套件
-- 未实现：模型推理链路（prompt_loader / pipeline / engine，见 TASKS.md 第 29-37 天排期）。
-  `run` 是模型调用的入口占位——无 API Key 时明确报错；有 Key 时也如实提示功能未实现，不会假装成功。
+- Implemented: 6 paper-type CoT templates and prompt assets, the template-management CLI (`list` / `show`), and the test suite
+- Not implemented: the model inference pipeline (prompt_loader / pipeline / engine, see TASKS.md days 29–37).
+  `run` is the entry-point placeholder for model invocation — without an API key it exits with a clear error; with a key it honestly reports that the feature is not implemented instead of pretending success.
 
-## 支持的论文类型
+## Supported paper types
 
-| # | 论文类型 | 典型场景 | CoT 步骤 |
-|---|---------|---------|---------|
-| 1 | **理论辨析型** | 课程论文、法理论文 | 6 步 |
-| 2 | **案例分析型** | 判决评析论文 | 8 步 |
-| 3 | **制度比较型** | 比较法论文 | 6 步 |
-| 4 | **实证研究型** | 数据驱动论文 | 6 步 |
-| 5 | **立法建议型** | 修法建议论文 | 6 步 |
-| 6 | **文献综述型** | 综述论文 | 4 步 |
+| # | Paper type | Typical use | CoT steps |
+|---|-----------|-------------|-----------|
+| 1 | **Theoretical analysis** | course papers, legal-theory papers | 6 steps |
+| 2 | **Case analysis** | judgment-commentary papers | 8 steps |
+| 3 | **Institutional comparison** | comparative-law papers | 6 steps |
+| 4 | **Empirical research** | data-driven papers | 6 steps |
+| 5 | **Legislative proposal** | law-reform proposal papers | 6 steps |
+| 6 | **Literature review** | survey papers | 4 steps |
 
-## 快速开始
+## Quick start
 
-需要 Python >= 3.10。
+Requires Python >= 3.10.
 
 ```bash
-# 1. 安装（含 juriscot 控制台脚本）
+# 1. Install (includes the `juriscot` console script)
 pip install -e .
 
-# 2. 列出全部论文类型及其 CoT 链路
+# 2. List all paper types and their CoT chains
 juriscot list
 
-# 3. 查看某类型的模板详情（英文代码或中文名均可）
+# 3. Show the template details of one type (English code or Chinese name both work)
 juriscot show theory
 juriscot show 案例分析
 
-# 4.（可选）模型调用入口 —— v0.1 尚未接入模型，行为如下：
-#    - 未提供 API Key：明确报错退出（退出码 2）
-#    - 提供 API Key：如实提示推理链路尚未实现（退出码 3）
-cp .env.example .env      # 按需填入 JURISCOT_API_KEY（.env 已被 gitignore）
+# 4. (Optional) model-invocation entry point — not wired to a model in v0.1; behavior:
+#    - no API key provided: exits with a clear error (exit code 2)
+#    - API key provided: honestly reports the pipeline is not implemented (exit code 3)
+cp .env.example .env      # fill in JURISCOT_API_KEY as needed (.env is gitignored)
 juriscot run --type theory --topic "论数据产权的法律属性"
 ```
 
-退出码约定：`0` 成功；`2` 用法/配置错误（参数非法、缺 API Key 等）；`3` 功能未实现。
+Exit-code conventions: `0` success; `2` usage/config error (invalid arguments, missing API key, etc.); `3` feature not implemented.
 
-不安装直接跑也可以：在仓库根目录执行 `py -3.13 -m src.cli list`（任意 Python >= 3.10 均可）。
+You can also run it without installing: from the repository root, execute `py -3.13 -m src.cli list` (any Python >= 3.10 works).
 
-## 运行测试
+## Running tests
 
 ```bash
 py -3.13 -m pytest tests -q
-# 或任意 Python >= 3.10：python -m pytest tests -q
+# or any Python >= 3.10: python -m pytest tests -q
 ```
 
-覆盖：模板加载完整性（6 类模板可解析、字段齐全、链路每步有对应提示词文件）与 CLI 行为（list / show / run 的成功与报错路径）。
+Coverage: template-loading integrity (all 6 templates parse, fields complete, every chain step has a matching prompt file) and CLI behavior (success and error paths of list / show / run).
 
-## 项目结构
+## Project structure
 
 ```
 JurisCoT/
-├── src/                  # 核心源码
+├── src/                  # Core source
 │   ├── __init__.py
-│   ├── schemas.py       # 数据模式定义
-│   ├── types.py         # 类型定义
-│   └── cli.py           # 命令行入口（list / show / run）
-├── prompts/             # CoT 提示词资产
-│   ├── base/            # 角色设定与法学论证规则
-│   ├── cot/             # Step 1-5 各步提示词（含 4c 变体）
-│   └── templates/       # 6 类论文类型的链路模板（YAML）
-├── tests/               # 模板完整性 + CLI 行为测试
-├── .env.example         # 环境变量示例（占位符，不含真实值）
-├── DESIGN.md            # 完整设计文档
-├── TASKS.md             # 工程任务单
+│   ├── schemas.py       # Data schema definitions
+│   ├── types.py         # Type definitions
+│   └── cli.py           # CLI entry point (list / show / run)
+├── prompts/             # CoT prompt assets
+│   ├── base/            # Role setup and legal-argumentation rules
+│   ├── cot/             # Step 1-5 prompts (incl. 4c variants)
+│   └── templates/       # Chain templates for the 6 paper types (YAML)
+├── tests/               # Template integrity + CLI behavior tests
+├── .env.example         # Environment variable example (placeholders only, no real values)
+├── DESIGN.md            # Full design document
+├── TASKS.md             # Engineering task list
 ├── LICENSE              # MIT
-└── pyproject.toml       # 项目配置
+└── pyproject.toml       # Project configuration
 ```
 
-## 开发计划
+## Roadmap
 
-详见 [TASKS.md](./TASKS.md) — 40 天工程任务单，每天 1 小时，一天一项。
+See [TASKS.md](./TASKS.md) — a 40-day engineering task list, 1 hour a day, one item per day.
 
 ## License
 
