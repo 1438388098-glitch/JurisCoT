@@ -413,7 +413,7 @@ JurisCoT/
 ├── pyproject.toml                  # pip install -e . 配置
 ├── requirements.txt                # openai + pydantic + pyyaml
 ├── DESIGN.md                       # 本文件
-├── TASKS.md                        # 每日任务清单
+├── docs/roadmap-internal.md        # 维护者个人的 40 天工作排期
 │
 ├── prompts/
 │   ├── base/

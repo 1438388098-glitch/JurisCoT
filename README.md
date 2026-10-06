@@ -2,7 +2,7 @@ English · [简体中文](./README.zh-CN.md)
 
 # JurisCoT — Legal Chain-of-Thought Reasoning Engine
 
-A standalone, independently testable legal Chain-of-Thought (CoT) reasoning library for Chinese legal academic writing, serving as the core reasoning component of LawAutoPaper. It ships six paper-type CoT prompt templates with a small CLI (`juriscot list|show|run`) to inspect them. v0.1 covers template asset management only — the model inference pipeline is not implemented yet (see TASKS.md), and `run` reports that honestly instead of faking a call.
+A standalone, independently testable legal Chain-of-Thought (CoT) reasoning library for Chinese legal academic writing, serving as the core reasoning component of LawAutoPaper. It ships six paper-type CoT prompt templates with a small CLI (`juriscot list|show|run`) to inspect them. v0.1 covers template asset management only — the model inference pipeline is not implemented yet (see docs/roadmap-internal.md), and `run` reports that honestly instead of faking a call.
 
 ## Overview
 
@@ -15,7 +15,7 @@ JurisCoT takes a legal question plus related literature / statutes / cases / dat
 **Current status (v0.1)**:
 
 - Implemented: 6 paper-type CoT templates and prompt assets, the template-management CLI (`list` / `show`), and the test suite
-- Not implemented: the model inference pipeline (prompt_loader / pipeline / engine, see TASKS.md days 29–37).
+- Not implemented: the model inference pipeline (prompt_loader / pipeline / engine, see docs/roadmap-internal.md days 29–37).
   `run` is the entry-point placeholder for model invocation — without an API key it exits with a clear error; with a key it honestly reports that the feature is not implemented instead of pretending success.
 
 ## Supported paper types
@@ -78,16 +78,17 @@ JurisCoT/
 │   ├── cot/             # Step 1-5 prompts (incl. 4c variants)
 │   └── templates/       # Chain templates for the 6 paper types (YAML)
 ├── tests/               # Template integrity + CLI behavior tests
+├── docs/
+│   └── roadmap-internal.md  # Maintainer's 40-day working plan
 ├── .env.example         # Environment variable example (placeholders only, no real values)
 ├── DESIGN.md            # Full design document
-├── TASKS.md             # Engineering task list
 ├── LICENSE              # MIT
 └── pyproject.toml       # Project configuration
 ```
 
 ## Roadmap
 
-See [TASKS.md](./TASKS.md) — a 40-day engineering task list, 1 hour a day, one item per day.
+See [docs/roadmap-internal.md](./docs/roadmap-internal.md) — the maintainer's 40-day working plan, 1 hour a day, one item per day.
 
 ## License
 

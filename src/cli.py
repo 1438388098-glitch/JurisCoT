@@ -2,7 +2,7 @@
 
 提供两类能力：
 1. 模板资产管理：``list`` / ``show`` 列出并展示 6 类论文的 CoT 模板（纯本地，无需任何密钥）。
-2. 模型调用入口：``run``。推理链路（prompt_loader / pipeline / engine，见 TASKS.md
+2. 模型调用入口：``run``。推理链路（prompt_loader / pipeline / engine，见 docs/roadmap-internal.md
    第 29-37 天）尚未实现——未提供 API Key 时明确报错；提供了 Key 也会如实提示
    功能未实现，绝不假装调用成功。
 
@@ -157,7 +157,7 @@ def cmd_run(args: argparse.Namespace) -> int:
         )
     raise NotImplementedError(
         "模型推理链路尚未实现：v0.1 仅提供模板管理（list / show）。"
-        "引擎实现排期见 TASKS.md 第 29-37 天。"
+        "引擎实现排期见 docs/roadmap-internal.md 第 29-37 天。"
     )
 
 

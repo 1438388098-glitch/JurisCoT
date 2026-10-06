@@ -2,7 +2,7 @@
 
 # JurisCoT — 法学思维链推理引擎
 
-LawAutoPaper 的前置独立子项目。一个可独立运行、独立测试的法学 Chain-of-Thought（CoT）推理库，面向中文法学学术写作，作为 LawAutoPaper 的核心推理组件。内置 6 类论文 CoT 提示词模板与小型 CLI（`juriscot list|show|run`）。v0.1 仅覆盖模板资产管理——模型推理链路尚未实现（见 TASKS.md），`run` 会如实提示而非假装成功。
+LawAutoPaper 的前置独立子项目。一个可独立运行、独立测试的法学 Chain-of-Thought（CoT）推理库，面向中文法学学术写作，作为 LawAutoPaper 的核心推理组件。内置 6 类论文 CoT 提示词模板与小型 CLI（`juriscot list|show|run`）。v0.1 仅覆盖模板资产管理——模型推理链路尚未实现（见 docs/roadmap-internal.md），`run` 会如实提示而非假装成功。
 
 ## 概述
 
@@ -15,7 +15,7 @@ JurisCoT 接收法律问题及相关文献/法条/案例/数据/域外法，通�
 **当前状态（v0.1）**：
 
 - 已实现：6 类论文 CoT 模板与提示词资产、模板管理 CLI（`list` / `show`）、测试套件
-- 未实现：模型推理链路（prompt_loader / pipeline / engine，见 TASKS.md 第 29-37 天排期）。
+- 未实现：模型推理链路（prompt_loader / pipeline / engine，见 docs/roadmap-internal.md 第 29-37 天排期）。
   `run` 是模型调用的入口占位——无 API Key 时明确报错；有 Key 时也如实提示功能未实现，不会假装成功。
 
 ## 支持的论文类型
@@ -78,16 +78,17 @@ JurisCoT/
 │   ├── cot/             # Step 1-5 各步提示词（含 4c 变体）
 │   └── templates/       # 6 类论文类型的链路模板（YAML）
 ├── tests/               # 模板完整性 + CLI 行为测试
+├── docs/
+│   └── roadmap-internal.md  # 维护者个人的 40 天工作排期
 ├── .env.example         # 环境变量示例（占位符，不含真实值）
 ├── DESIGN.md            # 完整设计文档
-├── TASKS.md             # 工程任务单
 ├── LICENSE              # MIT
 └── pyproject.toml       # 项目配置
 ```
 
 ## 开发计划
 
-详见 [TASKS.md](./TASKS.md) — 40 天工程任务单，每天 1 小时，一天一项。
+详见 [docs/roadmap-internal.md](./docs/roadmap-internal.md) — 维护者个人的 40 天工作排期，每天 1 小时，一天一项。
 
 ## License
 
